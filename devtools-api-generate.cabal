@@ -1,0 +1,55 @@
+name:           devtools-api-generate
+version:        0.1
+synopsis:       Haskell interface to Chrome DevTools Protocol (generator)
+description:    https://github.com/ChromeDevTools/devtools-protocol
+license:        MPL-2.0
+license-file:   LICENSE
+author:         Shane O'Brien
+maintainer:     me@shane.sh
+stability:      Experimental
+category:       Web
+cabal-version:  >= 1.8
+build-type:     Simple
+homepage:       https://github.com/duairc/devtools-api-generate
+bug-reports:    https://github.com/duairc/devtools-api-generate/issues
+
+extra-source-files:
+  LICENSE
+
+library
+  hs-source-dirs:
+    src
+
+  exposed-modules:
+    DevTools.Meta.Generate
+    DevTools.Meta.Protocol
+
+  build-depends:
+    aeson,
+    base,
+    deepseq,
+    directory,
+    filepath,
+    hashable,
+    text,
+    transformers,
+    unordered-containers,
+    witherable
+
+  ghc-options: -Wall
+
+executable devtools-api-generate
+  main-is:             Main.hs
+
+  build-depends:
+    aeson,
+    base < 5,
+    devtools-api-generate,
+    text
+
+  hs-source-dirs:      bin
+  ghc-options:         -Wall -threaded
+
+source-repository head
+  type:     git
+  location: https://github.com/duairc/devtools-api-generate.git
